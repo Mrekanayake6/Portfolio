@@ -3,15 +3,7 @@ import { FiMail, FiGithub, FiLinkedin, FiMapPin ,FiInstagram } from "react-icons
 import { SiWhatsapp } from "react-icons/si";
 
 const contacts = [
-  {
-    icon: <FiMail />,
-    title: "Email",
-    value: "lakshanekanayake6@gmail.com",
-    link: "mailto:lakshanekanayake6@gmail.com",
-    gradient: "from-purple/10 to-blue/10",
-    borderColor: "rgba(139,92,246,0.2)",
-    glowColor: "rgba(139,92,246,0.15)",
-  },
+  
   {
     icon: <FiGithub />,
     title: "GitHub",
@@ -38,6 +30,15 @@ const contacts = [
     gradient: "from-cyan/10 to-blue/10",
     borderColor: "rgba(6,182,212,0.2)",
     glowColor: "rgba(6,182,212,0.15)",
+  },
+  {
+    icon: <FiMail />,
+    title: "Email",
+    value: "lakshanekanayake6@gmail.com",
+    link: "mailto:lakshanekanayake6@gmail.com",
+    gradient: "from-purple/10 to-blue/10",
+    borderColor: "rgba(139,92,246,0.2)",
+    glowColor: "rgba(139,92,246,0.15)",
   },
   {
     icon: <SiWhatsapp />,
