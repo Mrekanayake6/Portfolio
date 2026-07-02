@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FiMail, FiGithub, FiLinkedin, FiMapPin } from "react-icons/fi";
+import { FiMail, FiGithub, FiLinkedin, FiMapPin ,FiInstagram } from "react-icons/fi";
 import { SiWhatsapp } from "react-icons/si";
 
 const contacts = [
