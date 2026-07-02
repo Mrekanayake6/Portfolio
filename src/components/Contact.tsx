@@ -24,9 +24,9 @@ const contacts = [
   },
    {
     icon: <FiInstagram />,
-    title: "LinkedIn",
+    title: "Instagram",
     value: "Lakshan Ekanayake",
-    link: "https://www.linkedin.com/in/lakshan-ekanayake-164909296/",
+    link: "https://www.instagram.com/s.ekanayake_?igsh=MTlodnM1NXRmdXNjMg%3D%3D&utm_source=qr",
     gradient: "from-cyan/10 to-blue/10",
     borderColor: "rgba(6,182,212,0.2)",
     glowColor: "rgba(6,182,212,0.15)",
