@@ -15,7 +15,7 @@ const contacts = [
   {
     icon: <FiGithub />,
     title: "GitHub",
-    value: "https://github.com/Mrekanayake6",
+    value: "MRekanayake",
     link: "https://github.com/Mrekanayake6",
     gradient: "from-blue/10 to-cyan/10",
     borderColor: "rgba(59,130,246,0.2)",
@@ -24,8 +24,17 @@ const contacts = [
   {
     icon: <FiLinkedin />,
     title: "LinkedIn",
-    value: "linkedin.com/in/supun",
-    link: "https://linkedin.com/",
+    value: "Lakshan Ekanayake",
+    link: "https://www.linkedin.com/in/lakshan-ekanayake-164909296/",
+    gradient: "from-cyan/10 to-blue/10",
+    borderColor: "rgba(6,182,212,0.2)",
+    glowColor: "rgba(6,182,212,0.15)",
+  },
+   {
+    icon: <FiInstagram />,
+    title: "LinkedIn",
+    value: "Lakshan Ekanayake",
+    link: "https://www.linkedin.com/in/lakshan-ekanayake-164909296/",
     gradient: "from-cyan/10 to-blue/10",
     borderColor: "rgba(6,182,212,0.2)",
     glowColor: "rgba(6,182,212,0.15)",
