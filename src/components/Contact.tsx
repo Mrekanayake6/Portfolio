@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { FiMail, FiGithub, FiLinkedin, FiMapPin ,FiInstagram } from "react-icons/fi";
+import { FiMail, FiGithub, FiLinkedin, FiMapPin, FiInstagram } from "react-icons/fi";
 import { SiWhatsapp } from "react-icons/si";
 
 const contacts = [
-  
+
   {
     icon: <FiGithub />,
     title: "GitHub",
@@ -22,10 +22,10 @@ const contacts = [
     borderColor: "rgba(6,182,212,0.2)",
     glowColor: "rgba(6,182,212,0.15)",
   },
-   {
+  {
     icon: <FiInstagram />,
     title: "Instagram",
-    value: "Lakshan Ekanayake",
+    value: "s.ekanayake",
     link: "https://www.instagram.com/s.ekanayake_?igsh=MTlodnM1NXRmdXNjMg%3D%3D&utm_source=qr",
     gradient: "from-cyan/10 to-blue/10",
     borderColor: "rgba(6,182,212,0.2)",
@@ -59,7 +59,7 @@ const contacts = [
     glowColor: "rgba(59,130,246,0.15)",
   },
 
-  
+
 ];
 
 export default function Contact() {
@@ -130,7 +130,7 @@ export default function Contact() {
             Let’s build something amazing 🚀
           </h3>
           <p className="text-white/60 text-sm">
-            I’m open for internships, freelance work, and collaborations.
+            I’m available for freelance projects, product development, and collaborations focused on building modern, scalable web solutions.
           </p>
         </motion.div>
       </div>
