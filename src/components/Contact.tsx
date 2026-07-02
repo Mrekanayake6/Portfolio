@@ -15,7 +15,7 @@ const contacts = [
   {
     icon: <FiGithub />,
     title: "GitHub",
-    value: "github.com/supun",
+    value: "",
     link: "https://github.com/",
     gradient: "from-blue/10 to-cyan/10",
     borderColor: "rgba(59,130,246,0.2)",
