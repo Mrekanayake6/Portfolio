@@ -25,7 +25,7 @@ const contacts = [
   {
     icon: <FiInstagram />,
     title: "Instagram",
-    value: "s.ekanayake",
+    value: "s.ekanayake1jjjhjj",
     link: "https://www.instagram.com/s.ekanayake_?igsh=MTlodnM1NXRmdXNjMg%3D%3D&utm_source=qr",
     gradient: "from-cyan/10 to-blue/10",
     borderColor: "rgba(6,182,212,0.2)",
