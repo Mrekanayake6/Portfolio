@@ -64,7 +64,7 @@ const contacts = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative z-10 py-24 px-6 md:px-10">
+    <section id="contact" className="relative z-10 py-24 px-6 md:px-10"style={{ background: 'linear-gradient(180deg, #0B0B0F 0%, rgba(139,92,246,0.03) 50%, #0B0B0F 100%)' }}>
       <div className="max-w-6xl mx-auto">
 
         {/* Heading */}
