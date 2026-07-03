@@ -52,7 +52,7 @@ export default function About() {
   const { ref, inView } = useInView()
 
   return (
-    <section id="about" className="relative z-10 py-24 px-6 md:px-10">
+    <section id="about" className="relative z-10 py-24 px-6 md:px-10"style={{ background: 'linear-gradient(180deg, #0B0B0F 0%, rgba(139,92,246,0.03) 50%, #0B0B0F 100%)' }}>
       <div className="max-w-6xl mx-auto">
         <div ref={ref} className="grid md:grid-cols-2 gap-16 items-start">
 
