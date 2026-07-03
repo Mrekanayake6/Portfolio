@@ -28,7 +28,7 @@ const educations = [
 
 export default function Education() {
   return (
-    <section id="education" className="relative z-10 py-24 px-6 md:px-10">
+    <section id="education" className="relative z-10 py-24 px-6 md:px-10"style={{ background: 'linear-gradient(180deg, #0B0B0F 0%, rgba(139,92,246,0.03) 50%, #0B0B0F 100%)' }}>
       <div className="max-w-6xl mx-auto">
         <motion.div className="text-center mb-14" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           <span className="section-tag">Education</span>
