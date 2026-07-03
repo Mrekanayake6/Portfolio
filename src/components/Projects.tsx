@@ -53,7 +53,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative z-10 py-24 px-6 md:px-10">
+    <section id="projects" className="relative z-10 py-24 px-6 md:px-10"style={{ background: 'linear-gradient(180deg, #0B0B0F 0%, rgba(139,92,246,0.03) 50%, #0B0B0F 100%)' }}>
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} initial="hidden" whileInView="visible" viewport={{ once: true }}>
