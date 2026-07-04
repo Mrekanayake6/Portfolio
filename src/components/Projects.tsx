@@ -6,7 +6,7 @@ const projects = [
   {
     id: 1,
     featured: true,
-     
+
     emoji: '',
     title: 'Atuwa — E Commerce Platform',
     image: 'src/assets/Screenshot.png',
@@ -19,7 +19,7 @@ const projects = [
     id: 2,
     emoji: '',
     title: 'DevConnect — Developer Forum',
-    image:null,
+    image: null,
     desc: 'A Q&A community platform for developers with threaded discussions, code snippets with syntax highlighting, upvotes, tag-based filtering, and real-time notifications.',
     tags: ['React', 'MongoDB', 'Node.js', 'JWT Auth'],
     gradient: 'linear-gradient(135deg, rgba(59,130,246,0.4), rgba(139,92,246,0.3))',
@@ -59,7 +59,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative z-10 py-24 px-6 md:px-10"style={{ background: 'linear-gradient(180deg, #0B0B0F 0%, rgba(139,92,246,0.03) 50%, #0B0B0F 100%)' }}>
+    <section id="projects" className="relative z-10 py-24 px-6 md:px-10" style={{ background: 'linear-gradient(180deg, #0B0B0F 0%, rgba(139,92,246,0.03) 50%, #0B0B0F 100%)' }}>
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -88,9 +88,10 @@ export default function Projects() {
               >
                 <img
                   src={p.image ?? undefined}
-                
+
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
+
                 {p.featured && (
                   <span className="absolute top-4 left-4 text-xs font-bold text-white bg-gradient-to-r from-purple to-blue px-3 py-1.5 rounded-full">⭐ Featured</span>
                 )}
