@@ -11,7 +11,7 @@ const projects = [
     desc: 'A mobile-first online marketplace connecting Sri Lankan farmers with consumers. Features a curated catalog of medicinal rice, ancient grains, flour varieties, and aromatic spices with secure ordering and integrated payment.',
     tags: ['HTML', 'CSS', 'MySQL',],
     gradient: 'linear-gradient(135deg, rgba(139,92,246,0.5), rgba(6,182,212,0.3), rgba(16,185,129,0.2))',
-    github: '#', live: '#',
+    github: 'https://github.com/Mrekanayake6', live: 'https://atuwa-ui.vercel.app/',
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const projects = [
     desc: 'A Q&A community platform for developers with threaded discussions, code snippets with syntax highlighting, upvotes, tag-based filtering, and real-time notifications.',
     tags: ['React', 'MongoDB', 'Node.js', 'JWT Auth'],
     gradient: 'linear-gradient(135deg, rgba(59,130,246,0.4), rgba(139,92,246,0.3))',
-    github: '#', live: '#',
+    github: 'https://github.com/Mrekanayake6', live: '#',
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const projects = [
     desc: 'Personal finance management app with visual analytics, smart budget tracking, recurring transactions, category breakdowns, and CSV export functionality.',
     tags: ['React', 'TypeScript', 'Chart.js', 'MySQL'],
     gradient: 'linear-gradient(135deg, rgba(6,182,212,0.4), rgba(16,185,129,0.3))',
-    github: '#', live: '#',
+    github: 'https://github.com/Mrekanayake6', live: '#',
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const projects = [
     desc: 'Full-featured LMS for course delivery, student progress tracking, quizzes, assignment submission, and automatic certificate generation for academic institutions.',
     tags: ['Java', 'Spring Boot', 'MySQL', 'React'],
     gradient: 'linear-gradient(135deg, rgba(245,158,11,0.3), rgba(239,68,68,0.3))',
-    github: '#', live: null,
+    github: 'https://github.com/Mrekanayake6', live: null,
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ const projects = [
     desc: 'Intelligent task management with AI-powered prioritization, drag-and-drop kanban board, team collaboration features, deadline reminders, and productivity analytics.',
     tags: ['React', 'TypeScript', 'Node.js', 'OpenAI API'],
     gradient: 'linear-gradient(135deg, rgba(139,92,246,0.4), rgba(59,130,246,0.2))',
-    github: '#', live: '#',
+    github: 'https://github.com/Mrekanayake6', live: '#',
   },
 ]
 
