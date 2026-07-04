@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { image } from 'framer-motion/client'
 import { FiGithub, FiExternalLink } from 'react-icons/fi'
-import atuwaImage from '../assets/atuwa-project.png';
+import atuwaImage from '../assets/atuwa.png';
 
 const projects = [
   {
