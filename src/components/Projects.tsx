@@ -30,9 +30,9 @@ const projects = [
   {
     id: 3,
     emoji: '',
-    title: 'ExpenseTrack — Finance Dashboard',
+    title: 'EJB-Based Banking System with Automated Time Services',
     image: bankImage,
-    desc: 'Personal finance management app with visual analytics, smart budget tracking, recurring transactions, category breakdowns, and CSV export functionality.',
+    desc: 'A secure banking system developed using Enterprise JavaBeans (EJB) to manage customer accounts, deposits, withdrawals, fund transfers, and transaction records. The system also uses EJB Timer Services to automate scheduled tasks such as interest calculations, daily transaction processing, and account-related notifications.',
     tags: ['HTML', 'CSS', 'Java', 'Hibernate', 'EJB', 'MySQL'],
     gradient: 'linear-gradient(135deg, rgba(6,182,212,0.4), rgba(16,185,129,0.3))',
     github: 'https://github.com/Mrekanayake6', live: '#',
