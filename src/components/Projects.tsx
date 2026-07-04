@@ -30,7 +30,7 @@ const projects = [
   {
     id: 3,
     emoji: '',
-    title: 'EJB-Based Banking System with Automated Time Services',
+    title: 'EJB — Based Banking System with Automated Time Services',
     image: bankImage,
     desc: 'A secure banking system developed using Enterprise JavaBeans (EJB) to manage customer accounts, deposits, withdrawals, fund transfers, and transaction records. The system also uses EJB Timer Services to automate scheduled tasks such as interest calculations, daily transaction processing, and account-related notifications.',
     tags: ['HTML', 'CSS', 'Java', 'Hibernate', 'EJB', 'MySQL'],
