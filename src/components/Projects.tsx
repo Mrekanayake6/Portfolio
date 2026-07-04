@@ -81,7 +81,7 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
             >
-              {/* Image */}
+              
               <div
                 className="relative flex items-center justify-center"
                 style={{ height: p.featured ? 240 : 180, background: p.gradient }}
