@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { image } from 'framer-motion/client'
 import { FiGithub, FiExternalLink } from 'react-icons/fi'
 
 const projects = [
@@ -8,6 +9,7 @@ const projects = [
      
     emoji: '',
     title: 'Atuwa — E Commerce Platform',
+    image: 'src/assets/Screenshot.png',
     desc: 'A mobile-first online marketplace connecting Sri Lankan farmers with consumers. Features a curated catalog of medicinal rice, ancient grains, flour varieties, and aromatic spices with secure ordering and integrated payment.',
     tags: ['HTML', 'CSS', 'MySQL',],
     gradient: 'linear-gradient(135deg, rgba(139,92,246,0.5), rgba(6,182,212,0.3), rgba(16,185,129,0.2))',
@@ -17,6 +19,7 @@ const projects = [
     id: 2,
     emoji: '',
     title: 'DevConnect — Developer Forum',
+    image:null,
     desc: 'A Q&A community platform for developers with threaded discussions, code snippets with syntax highlighting, upvotes, tag-based filtering, and real-time notifications.',
     tags: ['React', 'MongoDB', 'Node.js', 'JWT Auth'],
     gradient: 'linear-gradient(135deg, rgba(59,130,246,0.4), rgba(139,92,246,0.3))',
@@ -26,6 +29,7 @@ const projects = [
     id: 3,
     emoji: '',
     title: 'ExpenseTrack — Finance Dashboard',
+    image: null,
     desc: 'Personal finance management app with visual analytics, smart budget tracking, recurring transactions, category breakdowns, and CSV export functionality.',
     tags: ['React', 'TypeScript', 'Chart.js', 'MySQL'],
     gradient: 'linear-gradient(135deg, rgba(6,182,212,0.4), rgba(16,185,129,0.3))',
@@ -35,6 +39,7 @@ const projects = [
     id: 4,
     emoji: '',
     title: 'EduPortal — Learning Management System',
+    image: null,
     desc: 'Full-featured LMS for course delivery, student progress tracking, quizzes, assignment submission, and automatic certificate generation for academic institutions.',
     tags: ['Java', 'Spring Boot', 'MySQL', 'React'],
     gradient: 'linear-gradient(135deg, rgba(245,158,11,0.3), rgba(239,68,68,0.3))',
@@ -44,6 +49,7 @@ const projects = [
     id: 5,
     emoji: '',
     title: 'TaskFlow AI — Smart Task Manager',
+    image: null,
     desc: 'Intelligent task management with AI-powered prioritization, drag-and-drop kanban board, team collaboration features, deadline reminders, and productivity analytics.',
     tags: ['React', 'TypeScript', 'Node.js', 'OpenAI API'],
     gradient: 'linear-gradient(135deg, rgba(139,92,246,0.4), rgba(59,130,246,0.2))',
@@ -80,6 +86,11 @@ export default function Projects() {
                 className="relative flex items-center justify-center"
                 style={{ height: p.featured ? 240 : 180, background: p.gradient }}
               >
+                <img
+                  src={p.image ?? undefined}
+                
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
                 {p.featured && (
                   <span className="absolute top-4 left-4 text-xs font-bold text-white bg-gradient-to-r from-purple to-blue px-3 py-1.5 rounded-full">⭐ Featured</span>
                 )}
