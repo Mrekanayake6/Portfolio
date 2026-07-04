@@ -9,7 +9,7 @@ const projects = [
 
     emoji: '',
     title: 'Atuwa — E Commerce Platform',
-    image: 'src/assets/Screenshot.png',
+    image: 'src/assets/atuwa.png',
     desc: 'A mobile-first online marketplace connecting Sri Lankan farmers with consumers. Features a curated catalog of medicinal rice, ancient grains, flour varieties, and aromatic spices with secure ordering and integrated payment.',
     tags: ['HTML', 'CSS', 'MySQL',],
     gradient: 'linear-gradient(135deg, rgba(139,92,246,0.5), rgba(6,182,212,0.3), rgba(16,185,129,0.2))',
