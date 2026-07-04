@@ -33,7 +33,7 @@ const projects = [
     title: 'ExpenseTrack — Finance Dashboard',
     image: bankImage,
     desc: 'Personal finance management app with visual analytics, smart budget tracking, recurring transactions, category breakdowns, and CSV export functionality.',
-    tags: ['React', 'TypeScript', 'Chart.js', 'MySQL'],
+    tags: ['HTML', 'CSS', 'Java', 'Hibernate', 'EJB', 'MySQL'],
     gradient: 'linear-gradient(135deg, rgba(6,182,212,0.4), rgba(16,185,129,0.3))',
     github: 'https://github.com/Mrekanayake6', live: '#',
   },
