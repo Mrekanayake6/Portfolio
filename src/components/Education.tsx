@@ -6,7 +6,7 @@ const educations = [
     icon: <FaGraduationCap/>,
     degree: 'BEng — Software Engineering',
     institution: 'Java Institute for Advanced Technology',
-    period: '2023 – Present · Undergraduate',
+    period: '2022 – 2026 · Graduate',
     desc: 'Comprehensive software engineering program covering OOP, data structures, algorithms, web development, database design, software architecture, and project management. Active member of the coding club and tech community.',
     tags: ['Software Engineering', 'OOP', 'Algorithms', 'Web Dev'],
     gradient: 'from-purple/10 to-blue/10',
