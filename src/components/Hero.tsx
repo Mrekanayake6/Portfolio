@@ -55,7 +55,7 @@ export default function Hero() {
   ]
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-20 pb-20 px-6 md:px-10 z-10"style={{ background: 'linear-gradient(180deg, #0B0B0F 0%, rgba(139,92,246,0.03) 50%, #0B0B0F 100%)' }}>
+    <section id="hero" className="relative min-h-screen flex items-center pt-20 pb-20 px-6 md:px-10 z-10"style={{ background: 'linear-gradient(180deg, #131317 0%, rgba(139,92,246,0.03) 50%, #0B0B0F 100%)' }}>
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
