@@ -18,7 +18,7 @@ const educations = [
     degree: 'Self-Directed Learning',
     institution: 'Online Platforms & Open Source',
     period: '2022 – Present · Continuous',
-    desc: 'Supplementing formal education with courses on Udemy, Coursera, and freeCodeCamp. Completed specializations in React, Node.js, TypeScript, and modern full-stack development. Active contributor on GitHub.',
+    desc: 'Supplementing formal education with courses from Cisco Networking Academy, KodeKloud, freeCodeCamp, AWS, and other leading online learning platforms. Completed learning paths and specializations in React, Node.js, TypeScript, modern full-stack development, cloud computing, cybersecurity, software quality assurance, and project management. Active contributor on GitHub, continuously building practical projects and expanding technical expertise.',
     tags: ['kodekloud', 'Coursera', 'Cisco Networking Academy', 'Open Source'],
     gradient: 'from-cyan/10 to-blue/10',
     borderColor: 'rgba(6,182,212,0.2)',
