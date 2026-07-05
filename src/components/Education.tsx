@@ -19,7 +19,7 @@ const educations = [
     institution: 'Online Platforms & Open Source',
     period: '2022 – Present · Continuous',
     desc: 'Supplementing formal education with courses on Udemy, Coursera, and freeCodeCamp. Completed specializations in React, Node.js, TypeScript, and modern full-stack development. Active contributor on GitHub.',
-    tags: ['Udemy', 'Coursera', 'freeCodeCamp', 'Open Source'],
+    tags: ['kodekloud', 'Coursera', 'Cisco Networking Academy', 'Open Source'],
     gradient: 'from-cyan/10 to-blue/10',
     borderColor: 'rgba(6,182,212,0.2)',
     glowColor: 'rgba(6,182,212,0.1)',
