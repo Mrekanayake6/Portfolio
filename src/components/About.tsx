@@ -5,7 +5,7 @@ import { useInView } from '../useInView'
 
 
 const stats = [
-  { label: 'Projects Built', value: 10, suffix: '+' },
+  { label: 'Projects Built', value: 20, suffix: '+' },
   { label: 'Technologies', value: 8, suffix: '' },
   { label: 'Years Coding', value: 4, suffix: '+' },
   { label: 'Certifications', value: 5, suffix: '' },
