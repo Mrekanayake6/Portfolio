@@ -63,7 +63,7 @@ export default function About() {
               Crafting Digital <span className="grad-text">Experiences</span>
             </h2>
             <div className="space-y-4 text-white/65 leading-relaxed">
-              <p>I'm <strong className="text-white">Supun Lakshan Ekanayake</strong>, a passionate Software Engineer and Full Stack Developer from <strong className="text-white">Sri Lanka</strong>. I hold a <strong className="text-white">BEng (Hons) in Software Engineering from IIC University of Technology</strong>, I craft end-to-end software solutions with a focus on clean architecture, intuitive user experiences, and reliable performance.</p>
+              <p>I'm <strong className="text-white">Supun Lakshan Ekanayake</strong>, a passionate Software Engineer and Full Stack Developer from <strong className="text-white">Sri Lanka</strong>. I hold a <strong className="text-white">BEng (Hons) in Software Engineering from IIC University of Technology</strong>, I specialize in crafting end-to-end software solutions that combine clean, maintainable code, intuitive user experiences, and reliable performance.</p>
               <p>I love turning complex problems into elegant solutions — with a strong focus on clean code, modern architectures, and seamless user experiences across all devices.</p>
               <p>My current flagship project is <strong className="text-white">Atuwa</strong> — an online mobile commerce platform for medicinal rice, grains, flour, and spices connecting Sri Lankan farmers with consumers.</p>
             </div>
