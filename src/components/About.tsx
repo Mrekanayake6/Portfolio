@@ -24,7 +24,9 @@ const skills = [
   "Tailwind CSS",
   "Redux Toolkit",
   "Git",
-  "Postman"
+  "Postman",
+  "Android Development",
+  "React Native",
 ]
 
 function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
