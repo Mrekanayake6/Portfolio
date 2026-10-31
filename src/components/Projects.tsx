@@ -1,122 +1,267 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { image } from 'framer-motion/client'
-import { FiGithub, FiExternalLink } from 'react-icons/fi'
-import atuwaImage from '../assets/atuwa.png';
-import bankImage from '../assets/bank.png';
+import { FiGithub, FiExternalLink, FiFolder, FiLayers, FiCheckCircle } from 'react-icons/fi'
+import atuwaImage from '../assets/atuwa.png'
+import bankImage from '../assets/bank.png'
 
-const projects = [
+interface Project {
+  id: number
+  featured?: boolean
+  category: 'Full Stack' | 'Enterprise Java' | 'Frontend / AI'
+  title: string
+  subtitle: string
+  image: string | null
+  desc: string
+  highlights?: string[]
+  tags: string[]
+  github: string
+  live: string | null
+}
+
+const projects: Project[] = [
   {
     id: 1,
     featured: true,
-
-    emoji: '',
-    title: 'Atuwa — E Commerce Platform',
+    category: 'Full Stack',
+    title: 'Atuwa — E-Commerce Platform',
+    subtitle: 'Agricultural E-Commerce & Direct Farmer Marketplace',
     image: atuwaImage,
-    desc: 'A mobile-first online marketplace connecting Sri Lankan farmers with consumers. Features a curated catalog of medicinal rice, ancient grains, flour varieties, and aromatic spices with secure ordering and integrated payment.',
-    tags: ['HTML', 'CSS', 'MySQL',],
-    gradient: 'linear-gradient(135deg, rgba(139,92,246,0.5), rgba(6,182,212,0.3), rgba(16,185,129,0.2))',
-    github: 'https://github.com/Mrekanayake6', live: 'https://atuwa-ui.vercel.app/',
+    desc: 'A full-scale mobile-first e-commerce platform bridging Sri Lankan farmers with consumers. Features curated medicinal rice, spices, ancient grains, dynamic product filtering, cart management, and order handling.',
+    highlights: [
+      'Complete shopping flow with cart & checkout',
+      'Mobile-first responsive architecture',
+      'High-performance product catalog & search',
+    ],
+    tags: ['React', 'JavaScript', 'HTML5', 'CSS3', 'MySQL', 'Vercel'],
+    github: 'https://github.com/Mrekanayake6',
+    live: 'https://atuwa-ui.vercel.app/',
   },
   {
     id: 2,
-    emoji: '',
-    title: 'DevConnect — Developer Forum',
-    image: null,
-    desc: 'A Q&A community platform for developers with threaded discussions, code snippets with syntax highlighting, upvotes, tag-based filtering, and real-time notifications.',
-    tags: ['React', 'MongoDB', 'Node.js', 'JWT Auth'],
-    gradient: 'linear-gradient(135deg, rgba(59,130,246,0.4), rgba(139,92,246,0.3))',
-    github: 'https://github.com/Mrekanayake6', live: '#',
+    category: 'Enterprise Java',
+    title: 'EJB Banking System & Time Services',
+    subtitle: 'Enterprise Financial Transaction Engine',
+    image: bankImage,
+    desc: 'An enterprise banking application built using Enterprise JavaBeans (EJB 3.x) managing secure accounts, deposits, fund transfers, and audit logs. Utilizes automated EJB Timer Services for periodic interest calculation and account maintenance.',
+    highlights: [
+      'Automated background scheduled tasks via EJB Timers',
+      'Transactional integrity and ACID compliance',
+      'Comprehensive customer ledger & history',
+    ],
+    tags: ['Java EE', 'EJB 3', 'Hibernate', 'MySQL', 'GlassFish'],
+    github: 'https://github.com/Mrekanayake6',
+    live: null,
   },
   {
     id: 3,
-    emoji: '',
-    title: 'EJB — Based Banking System with Automated Time Services',
-    image: bankImage,
-    desc: 'A secure banking system developed using Enterprise JavaBeans (EJB) to manage customer accounts, deposits, withdrawals, fund transfers, and transaction records. The system also uses EJB Timer Services to automate scheduled tasks such as interest calculations, daily transaction processing, and account-related notifications.',
-    tags: ['HTML', 'CSS', 'Java', 'Hibernate', 'EJB', 'MySQL'],
-    gradient: 'linear-gradient(135deg, rgba(6,182,212,0.4), rgba(16,185,129,0.3))',
-    github: 'https://github.com/Mrekanayake6', live: '#',
+    category: 'Full Stack',
+    title: 'DevConnect — Developer Community Forum',
+    subtitle: 'Technical Discussion & Knowledge Platform',
+    image: null,
+    desc: 'A modern developer Q&A forum with threaded discussions, interactive code snippets with syntax highlighting, community upvoting, tag filtering, and JWT-secured user authentication.',
+    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT Auth'],
+    github: 'https://github.com/Mrekanayake6',
+    live: 'https://github.com/Mrekanayake6',
   },
   {
     id: 4,
-    emoji: '',
-    title: 'EduPortal — Learning Management System',
+    category: 'Enterprise Java',
+    title: 'EduPortal — Academic Management System',
+    subtitle: 'Institution Course & Learning Hub',
     image: null,
-    desc: 'Full-featured LMS for course delivery, student progress tracking, quizzes, assignment submission, and automatic certificate generation for academic institutions.',
-    tags: ['Java', 'Spring Boot', 'MySQL', 'React'],
-    gradient: 'linear-gradient(135deg, rgba(245,158,11,0.3), rgba(239,68,68,0.3))',
-    github: 'https://github.com/Mrekanayake6', live: null,
+    desc: 'A comprehensive LMS facilitating automated student enrollment, course syllabi delivery, assignment submissions, grading pipelines, and digital certificate generation.',
+    tags: ['Java', 'Spring Boot', 'MySQL', 'REST API', 'React'],
+    github: 'https://github.com/Mrekanayake6',
+    live: null,
   },
   {
     id: 5,
-    emoji: '',
-    title: 'TaskFlow AI — Smart Task Manager',
+    category: 'Frontend / AI',
+    title: 'TaskFlow AI — Smart Productivity Suite',
+    subtitle: 'Intelligent Kanban & Workflow Automation',
     image: null,
-    desc: 'Intelligent task management with AI-powered prioritization, drag-and-drop kanban board, team collaboration features, deadline reminders, and productivity analytics.',
-    tags: ['React', 'TypeScript', 'Node.js', 'OpenAI API'],
-    gradient: 'linear-gradient(135deg, rgba(139,92,246,0.4), rgba(59,130,246,0.2))',
-    github: 'https://github.com/Mrekanayake6', live: '#',
+    desc: 'An AI-enhanced task management application with drag-and-drop Kanban workflow, dynamic priority weighting, deadline reminders, and team productivity analytics.',
+    tags: ['React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'OpenAI'],
+    github: 'https://github.com/Mrekanayake6',
+    live: 'https://github.com/Mrekanayake6',
   },
 ]
 
 export default function Projects() {
+  const [filter, setFilter] = useState<'All' | 'Full Stack' | 'Enterprise Java' | 'Frontend / AI'>('All')
+
+  const filteredProjects =
+    filter === 'All' ? projects : projects.filter((p) => p.category === filter)
+
   return (
-    <section id="projects" className="relative z-10 py-24 px-6 md:px-10" style={{ background: 'linear-gradient(180deg, #0B0B0F 0%, rgba(139,92,246,0.03) 50%, #0B0B0F 100%)' }}>
+    <section
+      id="projects"
+      className="relative z-10 py-28 px-6 md:px-10 overflow-hidden"
+    >
+      {/* Ambient background glow */}
+      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-cyan/5 blur-[130px] rounded-full pointer-events-none -z-10" />
+
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-          <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <span className="section-tag">Portfolio</span>
-            <h2 className="font-syne font-extrabold" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <div className="section-tag">
+              <FiFolder className="text-indigo-400" />
+              <span>Selected Works</span>
+            </div>
+            <h2
+              className="font-syne font-extrabold tracking-tight mt-1 text-white"
+              style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)' }}
+            >
               Featured <span className="grad-text">Projects</span>
             </h2>
-          </motion.div>
-          <p className="text-white/50 text-sm max-w-xs">Showcasing real-world applications I've designed and built from scratch.</p>
+          </div>
+          <p className="text-slate-400 text-sm max-w-sm font-normal">
+            Real-world software engineering applications, enterprise architectures, and digital products built with modern stacks.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {projects.map((p, i) => (
+        {/* Filter Tabs */}
+        <div className="flex flex-wrap items-center gap-2 mb-10">
+          {(['All', 'Full Stack', 'Enterprise Java', 'Frontend / AI'] as const).map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 ${
+                filter === cat
+                  ? 'bg-gradient-to-r from-indigo-500 to-cyan text-white shadow-glow-sm scale-105'
+                  : 'bg-white/[0.04] text-slate-400 border border-white/[0.06] hover:text-white hover:bg-white/[0.08]'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+          {filteredProjects.map((p, i) => (
             <motion.div
               key={p.id}
-              className={`glass rounded-2xl overflow-hidden transition-all duration-400 hover:-translate-y-2 hover:border-purple/30 ${p.featured ? 'md:col-span-2' : ''}`}
+              className={`glass-card rounded-2xl overflow-hidden flex flex-col group hover:border-indigo-500/40 transition-all duration-300 ${
+                p.featured && filter === 'All' ? 'md:col-span-2 lg:col-span-2' : ''
+              }`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
             >
-              
+              {/* Card Media Preview Header */}
               <div
-                className="relative flex items-center justify-center"
-                style={{ height: p.featured ? 240 : 180, background: p.gradient }}
+                className={`relative w-full overflow-hidden bg-[#0A0D18] border-b border-white/[0.08] flex items-center justify-center ${
+                  p.featured && filter === 'All' ? 'h-64 sm:h-72' : 'h-52'
+                }`}
               >
-                <img
-                  src={p.image ?? undefined}
+                {/* Browser Mockup Chrome Bar */}
+                <div className="absolute top-0 left-0 right-0 h-8 bg-black/60 backdrop-blur-md border-b border-white/[0.08] px-3.5 flex items-center justify-between z-20">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                  </div>
+                  <span className="text-[10px] font-mono text-slate-400 truncate max-w-[180px]">
+                    {p.title.split('—')[0].toLowerCase().trim()}.app
+                  </span>
+                  <div className="w-6" />
+                </div>
 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-
-                {p.featured && (
-                  <span className="absolute top-4 left-4 text-xs font-bold text-white bg-gradient-to-r from-purple to-blue px-3 py-1.5 rounded-full">⭐ Featured</span>
+                {p.image ? (
+                  <div className="w-full h-full pt-8 overflow-hidden">
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                ) : (
+                  /* Stylized Code / Dashboard Placeholder for projects without screenshots */
+                  <div className="w-full h-full pt-8 p-6 flex flex-col justify-center items-center bg-gradient-to-br from-indigo-950/40 via-[#0B0D18] to-cyan-950/30 relative">
+                    <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-3 shadow-glow-sm group-hover:scale-110 transition-transform duration-300">
+                      <FiLayers size={26} />
+                    </div>
+                    <span className="text-xs font-mono font-medium text-slate-300 bg-white/[0.05] border border-white/10 px-3 py-1 rounded-full">
+                      {p.subtitle}
+                    </span>
+                  </div>
                 )}
-                <span className="text-4xl">{p.emoji}</span>
-                <span className="absolute bottom-4 right-4 text-xs text-white/50 border border-white/15 bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-full">{p.title.split('—')[0].trim()}</span>
+
+                {/* Badges Overlay */}
+                {p.featured && (
+                  <div className="absolute top-11 left-3.5 z-20">
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-white bg-gradient-to-r from-indigo-500 via-purple to-cyan px-3 py-1 rounded-full shadow-lg">
+                      ★ Flagship Project
+                    </span>
+                  </div>
+                )}
+
+                <div className="absolute top-11 right-3.5 z-20">
+                  <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-slate-300 bg-black/70 backdrop-blur-md border border-white/10 px-2.5 py-1 rounded-md">
+                    {p.category}
+                  </span>
+                </div>
               </div>
 
-              {/* Body */}
-              <div className="p-6">
-                <h3 className="font-syne font-bold text-base mb-2">{p.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed mb-4">{p.desc}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {p.tags.map(t => (
-                    <span key={t} className="text-xs px-2.5 py-1 rounded-full bg-purple/10 border border-purple/15 text-purple-light">{t}</span>
-                  ))}
+              {/* Card Body */}
+              <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between">
+                <div>
+                  <h3 className="font-syne font-bold text-lg text-white mb-2 group-hover:text-indigo-200 transition-colors">
+                    {p.title}
+                  </h3>
+                  <p className="text-slate-300 text-sm leading-relaxed mb-4 font-normal">
+                    {p.desc}
+                  </p>
+
+                  {/* Highlights if featured */}
+                  {p.highlights && (
+                    <ul className="mb-5 space-y-1.5">
+                      {p.highlights.map((h, hi) => (
+                        <li key={hi} className="flex items-center gap-2 text-xs text-slate-300">
+                          <FiCheckCircle className="text-emerald-400 flex-shrink-0" />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {/* Tech Tags */}
+                  <div className="flex flex-wrap gap-1.5 mb-6">
+                    {p.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/[0.08] text-slate-300"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="flex gap-2">
-                  <a href={p.github} className="flex items-center gap-1.5 text-xs px-3.5 py-2 rounded-full bg-white/6 border border-white/10 text-white/70 hover:text-white hover:border-white/20 transition-all">
-                    <FiGithub size={13} /> GitHub
+
+                {/* Footer Buttons */}
+                <div className="flex items-center gap-3 pt-3 border-t border-white/[0.06]">
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 inline-flex items-center justify-center gap-2 text-xs font-semibold py-2.5 px-4 rounded-xl bg-white/[0.05] border border-white/10 text-slate-200 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-200"
+                  >
+                    <FiGithub size={14} />
+                    <span>Source Code</span>
                   </a>
+
                   {p.live && (
-                    <a href={p.live} className="flex items-center gap-1.5 text-xs px-3.5 py-2 rounded-full text-white transition-all hover:-translate-y-0.5" style={{ background: 'linear-gradient(135deg, #8B5CF6, #3B82F6)' }}>
-                      <FiExternalLink size={13} /> Live Demo
+                    <a
+                      href={p.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-2 text-xs font-semibold py-2.5 px-4 rounded-xl text-white bg-gradient-to-r from-indigo-500 via-purple to-cyan hover:opacity-90 transition-all duration-200 shadow-glow-sm hover:scale-[1.02]"
+                    >
+                      <span>Live Preview</span>
+                      <FiExternalLink size={13} />
                     </a>
                   )}
                 </div>

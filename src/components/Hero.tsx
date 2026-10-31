@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiMail, FiArrowDown, FiCode } from 'react-icons/fi'
 import { BsWhatsapp } from 'react-icons/bs'
-import profileImage from "../assets/pro.jpg";
-import { FaCommentDots } from "react-icons/fa";
-
+import { FaGraduationCap } from 'react-icons/fa'
+import { HiSparkles } from 'react-icons/hi2'
+import profileImage from '../assets/pro.jpg'
 
 const phrases = [
   'Software Engineer',
   'Full Stack Developer',
-  'React Developer',
-  'Node.js Developer',
-  'Java Developer',
+  'React & TypeScript Specialist',
+  'Java Backend Engineer',
+  'Mobile App Developer',
   'Problem Solver',
 ]
 
@@ -28,20 +28,20 @@ export default function Hero() {
       if (charIdx < phrase.length) {
         timeout = setTimeout(() => {
           setDisplayed(phrase.substring(0, charIdx + 1))
-          setCharIdx(c => c + 1)
-        }, 100)
+          setCharIdx((c) => c + 1)
+        }, 80)
       } else {
-        timeout = setTimeout(() => setDeleting(true), 1800)
+        timeout = setTimeout(() => setDeleting(true), 2000)
       }
     } else {
       if (charIdx > 0) {
         timeout = setTimeout(() => {
           setDisplayed(phrase.substring(0, charIdx - 1))
-          setCharIdx(c => c - 1)
-        }, 60)
+          setCharIdx((c) => c - 1)
+        }, 40)
       } else {
         setDeleting(false)
-        setPhraseIdx(i => (i + 1) % phrases.length)
+        setPhraseIdx((i) => (i + 1) % phrases.length)
       }
     }
     return () => clearTimeout(timeout)
@@ -49,72 +49,112 @@ export default function Hero() {
 
   const socials = [
     { icon: <FiGithub size={18} />, href: 'https://github.com/Mrekanayake6', label: 'GitHub' },
-    { icon: <FiLinkedin size={18} />, href: 'https://linkedin.com/in/supunlakshan', label: 'LinkedIn' },
-    { icon: <BsWhatsapp size={18} />, href: 'https://wa.me/94713872042', label: 'WhatsApp' },
-    { icon: <FiMail size={18} />, href: 'mailto:supun.lakshan@example.com', label: 'Email' },
+    { icon: <FiLinkedin size={18} />, href: 'https://www.linkedin.com/in/lakshan-ekanayake-164909296/', label: 'LinkedIn' },
+    { icon: <BsWhatsapp size={17} />, href: 'https://wa.me/94713872042', label: 'WhatsApp' },
+    { icon: <FiMail size={18} />, href: 'mailto:lakshanekanayake6@gmail.com', label: 'Email' },
   ]
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-20 pb-20 px-6 md:px-10 z-10"style={{ background: 'linear-gradient(180deg, #131317 0%, rgba(139,92,246,0.03) 50%, #0B0B0F 100%)' }}>
-      <div className="max-w-6xl mx-auto w-full">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-6 md:px-10 overflow-hidden"
+    >
+      {/* Luxury Ambient Glows */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-gradient-to-b from-indigo-500/20 via-purple/10 to-transparent blur-[120px] pointer-events-none rounded-full -z-10" />
+      <div className="absolute bottom-10 right-10 w-[350px] h-[350px] bg-cyan/10 blur-[100px] pointer-events-none rounded-full -z-10" />
 
-          {/* LEFT */}
-          <div>
+      <div className="max-w-6xl mx-auto w-full">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* LEFT: Text Content (Col 7) */}
+          <div className="lg:col-span-7 text-left">
+            {/* Status Beacon Badge */}
             <motion.div
-              className="inline-flex items-center gap-2 bg-purple/10 border border-purple/25 rounded-full px-4 py-2 text-sm text-purple-light mb-6"
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/80 border border-indigo-500/30 backdrop-blur-xl shadow-[0_0_20px_-3px_rgba(99,102,241,0.25)] mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
-              <span className="w-2 h-2 rounded-full bg-purple animate-pulse" />
-              Available for Opportunities
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+              </span>
+              <span className="text-xs font-semibold tracking-wider text-slate-300 uppercase">
+                Available for Opportunities
+              </span>
             </motion.div>
 
+            {/* Main Headline */}
             <motion.h1
-              className="font-syne font-extrabold leading-[1.05] mb-4"
-              style={{ fontSize: 'clamp(2.4rem, 5vw, 4.2rem)' }}
-              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+              className="font-syne font-extrabold leading-[1.08] tracking-tight mb-4 text-white"
+              style={{ fontSize: 'clamp(2.5rem, 5.2vw, 4.4rem)' }}
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
             >
               Hi, I'm <br />
               <span className="grad-text">Supun Lakshan</span>
-              <br />Ekanayake
+              <br />
+              <span className="text-slate-100">Ekanayake</span>
             </motion.h1>
 
+            {/* Typewriter Role Container */}
             <motion.div
-              className="flex items-center gap-1 h-9 mb-6"
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/[0.03] border border-white/[0.08] mb-6 backdrop-blur-md"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
             >
-              <span className="text-lg text-white/60">{displayed}</span>
-              <span className="inline-block w-0.5 h-5 bg-purple animate-blink" />
+              <HiSparkles className="text-indigo-400 text-sm animate-pulse" />
+              <span className="text-base sm:text-lg font-medium text-slate-200 min-w-[200px]">
+                {displayed}
+                <span className="inline-block w-0.5 h-5 ml-1 bg-cyan-400 align-middle animate-blink" />
+              </span>
             </motion.div>
 
+            {/* Description */}
             <motion.p
-              className="text-white/55 text-base leading-relaxed mb-8 max-w-md"
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+              className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 max-w-xl font-normal"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
             >
-              Passionate Software Engineer & Full Stack Developer based in Sri Lanka 🇱🇰 —
-              building modern, scalable applications with clean code and exceptional UX.
+              Passionate <strong className="text-white font-semibold">Software Engineer & Full Stack Developer</strong> based in Sri Lanka.
+              I architect modern, high-performance web applications, robust enterprise backends, and intuitive digital experiences.
             </motion.p>
 
+            {/* Action Buttons */}
             <motion.div
-              className="flex flex-wrap gap-3 mb-10"
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
+              className="flex flex-wrap items-center gap-4 mb-10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.45 }}
             >
-              <a href="#projects" className="btn-primary"> View My Work</a>
-              <a href="#contact" className="btn-outline"><FaCommentDots /> Let's Talk</a>
+              <a href="#projects" className="btn-primary">
+                <span>Explore Featured Work</span>
+              </a>
+              <a href="#contact" className="btn-outline">
+                <span>Let's Connect</span>
+              </a>
             </motion.div>
 
+            {/* Social Links */}
             <motion.div
-              className="flex gap-3"
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
+              className="flex items-center gap-3"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.55 }}
             >
-              {socials.map(s => (
+              <span className="text-xs uppercase tracking-widest text-slate-500 font-mono mr-1">
+                Follow:
+              </span>
+              {socials.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={s.label}
-                  className="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white/60 hover:bg-purple/15 hover:border-purple/40 hover:text-white transition-all duration-300 hover:-translate-y-1"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center bg-slate-900/80 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-500/50 hover:bg-indigo-600/10 hover:shadow-[0_0_15px_rgba(99,102,241,0.3)] hover:-translate-y-1 transition-all duration-300"
                 >
                   {s.icon}
                 </a>
@@ -122,82 +162,92 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* RIGHT — Avatar */}
+          {/* RIGHT: High-End Avatar Frame (Col 5) */}
           <motion.div
-            className="flex justify-center items-center relative"
-            initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3, duration: 0.6 }}
+            className="lg:col-span-5 flex justify-center items-center relative"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
-            {/* Spinning ring */}
-            <div className="relative" style={{ width: 325, height: 325 }}>
+            {/* Ambient Aura Background */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/30 via-purple/20 to-cyan/30 rounded-full blur-3xl scale-95 pointer-events-none animate-pulse_slow" />
+
+            <div className="relative w-[300px] sm:w-[340px] h-[300px] sm:h-[340px]">
+              {/* Animated Conic Gradient Ring */}
               <motion.div
-                className="absolute inset-0 rounded-full"
+                className="absolute inset-0 rounded-full p-[3px] shadow-[0_0_50px_rgba(99,102,241,0.35)]"
                 style={{
-                  background: 'conic-gradient(from 0deg, #8B5CF6, #3B82F6, #06B6D4, #8B5CF6)',
-                  padding: 3,
+                  background: 'conic-gradient(from 0deg, #6366F1, #8B5CF6, #06B6D4, #10B981, #6366F1)',
                 }}
                 animate={{ rotate: 360 }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
               >
-                <div className="w-full h-full rounded-full" style={{ background: '#0B0B0F' }} />
+                <div className="w-full h-full rounded-full bg-[#07080F]" />
               </motion.div>
 
-              {/* Inner circle */}
-              <div
-                className="absolute rounded-full flex items-center justify-center"
-                style={{
-                  inset: 6,
-                  background: 'linear-gradient(135deg, rgba(139,92,246,0.2), rgba(6,182,212,0.2))',
-                }}
-              >
+              {/* Inner Picture Container */}
+              <div className="absolute inset-[6px] rounded-full overflow-hidden bg-[#0A0D18] border border-white/10 flex items-center justify-center shadow-inner">
                 <img
                   src={profileImage}
                   alt="Supun Lakshan Ekanayake"
-                  className="w-full h-full object-contain rounded-full   object-cover shadow-lg shadow-purple/30"
+                  className="w-full h-full object-cover rounded-full transition-transform duration-700 hover:scale-105"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#05060A]/40 via-transparent to-transparent pointer-events-none" />
               </div>
 
-              {/* Float card 1 */}
+              {/* Floating Glass Pill 1: Full Stack */}
               <motion.div
-                className="absolute -bottom-5 -left-8 glass rounded-2xl px-4 py-3 flex items-center gap-3"
+                className="absolute -bottom-4 -left-6 sm:-left-8 glass-card rounded-2xl px-4 py-3 flex items-center gap-3 border border-white/10 shadow-2xl backdrop-blur-xl"
                 animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+                  <FiCode size={18} />
+                </div>
                 <div>
-                  <p className="text-sm font-semibold leading-none mb-1">Full Stack Dev</p>
-                  <p className="text-xs text-white/40"> Software Engineer · React · Node.js · Java · Android Development</p>
+                  <p className="text-xs font-bold text-white leading-tight">Full Stack Developer</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5">React · Node.js · Java · Cloud</p>
                 </div>
               </motion.div>
 
-              {/* Float card 2 */}
+              {/* Floating Glass Pill 2: Graduate */}
               <motion.div
-                className="absolute -top-3 -right-8 glass rounded-2xl px-4 py-3 flex items-center gap-3"
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
+                className="absolute -top-4 -right-4 sm:-right-8 glass-card rounded-2xl px-4 py-3 flex items-center gap-3 border border-white/10 shadow-2xl backdrop-blur-xl"
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-purple" />
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-purple/20 to-indigo-500/20 border border-purple/30 flex items-center justify-center text-purple-300">
+                  <FaGraduationCap size={18} />
+                </div>
                 <div>
-                  <p className="text-sm font-semibold leading-none mb-1">🎓 IIC University of Technology</p>
-                  <p className="text-xs text-white/40">BEng Graduate</p>
+                  <p className="text-xs font-bold text-white leading-tight">BEng (Hons) Graduate</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5">Software Engineering</p>
                 </div>
               </motion.div>
             </div>
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll Indicator */}
         <motion.div
-          className="flex flex-col items-center gap-2 mt-16 text-white/30 text-[0.65rem] tracking-widest uppercase"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}
+          className="flex flex-col items-center gap-2.5 mt-20 text-slate-500 text-[11px] font-mono tracking-widest uppercase"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
         >
-          <div className="w-5 h-8 border border-white/20 rounded-full flex justify-center pt-1.5">
-            <motion.div
-              className="w-0.5 h-2 bg-white/40 rounded-full"
-              animate={{ y: [0, 10], opacity: [1, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            />
-          </div>
-          Scroll Down
+          <a
+            href="#about"
+            className="flex flex-col items-center gap-2 group hover:text-slate-300 transition-colors"
+          >
+            <span>Scroll Down</span>
+            <div className="w-5 h-9 rounded-full border border-white/20 p-1 flex justify-center group-hover:border-indigo-400/50 transition-colors">
+              <motion.div
+                className="w-1.5 h-2 bg-gradient-to-b from-indigo-400 to-cyan-400 rounded-full"
+                animate={{ y: [0, 12, 0], opacity: [1, 0.2, 1] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+              />
+            </div>
+          </a>
         </motion.div>
       </div>
     </section>

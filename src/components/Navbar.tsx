@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiMenu, FiX } from 'react-icons/fi'
+import { FiMenu, FiX, FiArrowUpRight } from 'react-icons/fi'
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -18,105 +18,156 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 50)
-      const sections = ['about','skills','projects','experience','education','contact']
+      setScrolled(window.scrollY > 40)
+      const sections = ['about', 'skills', 'projects', 'experience', 'education', 'contact']
       for (const id of sections) {
         const el = document.getElementById(id)
         if (!el) continue
         const rect = el.getBoundingClientRect()
-        if (rect.top <= 100 && rect.bottom >= 100) { setActive(id); break }
+        if (rect.top <= 140 && rect.bottom >= 140) {
+          setActive(id)
+          break
+        }
       }
     }
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <>
-      <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 py-4 transition-all duration-300 ${
-          scrolled ? 'bg-black/85 backdrop-blur-xl border-b border-white/[0.06]' : ''
-        }`}
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-      >
-        <a
-          href="#"
-          className="grad-text font-syne font-extrabold text-xl tracking-tight"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 sm:px-6 py-4 transition-all duration-300 pointer-events-none">
+        <motion.nav
+          className={`w-full max-w-6xl flex items-center justify-between px-5 md:px-7 py-3 rounded-2xl md:rounded-full transition-all duration-300 pointer-events-auto ${
+            scrolled
+              ? 'bg-[#090b14]/80 backdrop-blur-xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.6)]'
+              : 'bg-transparent border border-transparent'
+          }`}
+          initial={{ y: -80, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          SLE.
-        </a>
+          {/* Logo */}
+          <a
+            href="#"
+            className="flex items-center gap-2 group cursor-pointer"
+            onClick={(e) => {
+              e.preventDefault()
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            }}
+          >
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple to-cyan flex items-center justify-center p-[1px] shadow-glow-sm">
+              <div className="w-full h-full bg-[#07080E] rounded-[11px] flex items-center justify-center">
+                <span className="font-syne font-extrabold text-sm text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-light to-cyan-light">
+                  SE
+                </span>
+              </div>
+            </div>
+            <span className="font-syne font-bold text-lg tracking-tight text-white group-hover:text-indigo-300 transition-colors">
+              Supun<span className="text-cyan">.</span>
+            </span>
+          </a>
 
-        {/* Desktop nav */}
-        <ul className="hidden md:flex gap-8 list-none">
-          {navLinks.map(link => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className={`text-sm font-medium tracking-wide transition-colors duration-200 relative group ${
-                  active === link.href.slice(1) ? 'text-white' : 'text-white/60 hover:text-white'
-                }`}
-              >
-                {link.label}
-                <span
-                  className={`absolute -bottom-1 left-0 h-px transition-all duration-300 rounded-full ${
-                    active === link.href.slice(1) ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`}
-                  style={{ background: 'linear-gradient(135deg, #8B5CF6, #06B6D4)' }}
-                />
-              </a>
-            </li>
-          ))}
-        </ul>
+          {/* Desktop nav links */}
+          <ul className="hidden md:flex items-center gap-1 list-none bg-white/[0.03] border border-white/[0.06] rounded-full px-3 py-1.5 backdrop-blur-md">
+            {navLinks.map((link) => {
+              const isActive = active === link.href.slice(1)
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className={`relative text-xs tracking-wider uppercase font-semibold px-4 py-2 rounded-full transition-all duration-200 block ${
+                      isActive
+                        ? 'text-white'
+                        : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]'
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.span
+                        layoutId="activeNavIndicator"
+                        className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple/20 to-cyan/20 border border-indigo-400/30 rounded-full -z-10 shadow-sm"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                    {link.label}
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
 
-        <a
-          href="#contact"
-          className="hidden md:inline-flex btn-primary text-sm py-2 px-5"
-        >
-          Hire Me
-        </a>
+          {/* CTA & Mobile Toggle */}
+          <div className="flex items-center gap-3">
+            <a
+              href="#contact"
+              className="hidden md:inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider px-5 py-2.5 rounded-full text-white bg-gradient-to-r from-indigo-500 via-purple to-cyan hover:opacity-95 transition-all duration-300 hover:scale-[1.03] shadow-[0_0_20px_rgba(99,102,241,0.35)]"
+            >
+              <span>Hire Me</span>
+              <FiArrowUpRight className="text-sm" />
+            </a>
 
-        {/* Hamburger */}
-        <button
-          className="md:hidden text-white/80 hover:text-white transition-colors p-1"
-          onClick={() => setMobileOpen(true)}
-        >
-          <FiMenu size={24} />
-        </button>
-      </motion.nav>
+            {/* Mobile Hamburger */}
+            <button
+              className="md:hidden w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-slate-200 hover:text-white transition-colors"
+              onClick={() => setMobileOpen(true)}
+              aria-label="Open menu"
+            >
+              <FiMenu size={20} />
+            </button>
+          </div>
+        </motion.nav>
+      </header>
 
-      {/* Mobile Nav */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="fixed inset-0 z-[999] flex flex-col items-center justify-center gap-10"
-            style={{ background: 'rgba(11,11,15,0.97)', backdropFilter: 'blur(20px)' }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[999] flex flex-col justify-between p-6 bg-[#06070D]/95 backdrop-blur-2xl border-l border-white/10"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
           >
-            <button
-              className="absolute top-5 right-6 text-white/60 hover:text-white"
-              onClick={() => setMobileOpen(false)}
-            >
-              <FiX size={28} />
-            </button>
-            {navLinks.map((link, i) => (
-              <motion.a
-                key={link.href}
-                href={link.href}
-                className="font-syne font-bold text-3xl text-white/70 hover:text-white transition-colors"
+            <div className="flex items-center justify-between pt-2">
+              <span className="font-syne font-bold text-xl text-white">
+                Navigation<span className="text-cyan">.</span>
+              </span>
+              <button
+                className="w-10 h-10 rounded-xl bg-white/[0.06] border border-white/10 flex items-center justify-center text-slate-300 hover:text-white"
                 onClick={() => setMobileOpen(false)}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.07 }}
+                aria-label="Close menu"
               >
-                {link.label}
-              </motion.a>
-            ))}
+                <FiX size={22} />
+              </button>
+            </div>
+
+            <div className="flex flex-col gap-5 py-8">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  className="font-syne font-bold text-2xl text-slate-300 hover:text-white flex items-center justify-between py-2 border-b border-white/[0.05]"
+                  onClick={() => setMobileOpen(false)}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.06 }}
+                >
+                  <span>{link.label}</span>
+                  <FiArrowUpRight className="text-indigo-400 text-xl" />
+                </motion.a>
+              ))}
+            </div>
+
+            <div className="pb-4">
+              <a
+                href="#contact"
+                className="w-full btn-primary py-3.5 text-sm flex items-center justify-center gap-2"
+                onClick={() => setMobileOpen(false)}
+              >
+                <span>Get In Touch</span>
+                <FiArrowUpRight size={16} />
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
