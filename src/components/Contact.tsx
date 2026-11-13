@@ -1,6 +1,17 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FiMail, FiGithub, FiLinkedin, FiMapPin, FiInstagram, FiCopy, FiCheck, FiArrowUpRight, FiMessageSquare } from 'react-icons/fi'
+import {
+  FiMail,
+  FiGithub,
+  FiLinkedin,
+  FiMapPin,
+  FiInstagram,
+  FiCopy,
+  FiCheck,
+  FiArrowUpRight,
+  FiMessageSquare,
+  FiSend,
+} from 'react-icons/fi'
 import { SiWhatsapp } from 'react-icons/si'
 
 const contacts = [
@@ -11,8 +22,6 @@ const contacts = [
     actionText: 'Send Email',
     link: 'mailto:lakshanekanayake6@gmail.com',
     isEmail: true,
-    color: 'from-indigo-500/20 to-purple/20',
-    borderColor: 'border-indigo-500/30',
     accent: '#6366F1',
   },
   {
@@ -21,8 +30,6 @@ const contacts = [
     value: '+94 71 387 2042',
     actionText: 'Direct Chat',
     link: 'https://wa.me/94713872042',
-    color: 'from-emerald-500/20 to-teal-500/20',
-    borderColor: 'border-emerald-500/30',
     accent: '#10B981',
   },
   {
@@ -31,8 +38,6 @@ const contacts = [
     value: 'Lakshan Ekanayake',
     actionText: 'Connect on LinkedIn',
     link: 'https://www.linkedin.com/in/lakshan-ekanayake-164909296/',
-    color: 'from-blue-500/20 to-cyan/20',
-    borderColor: 'border-blue-500/30',
     accent: '#3B82F6',
   },
   {
@@ -41,8 +46,6 @@ const contacts = [
     value: 'MRekanayake',
     actionText: 'View Repositories',
     link: 'https://github.com/Mrekanayake6',
-    color: 'from-purple/20 to-indigo-500/20',
-    borderColor: 'border-purple/30',
     accent: '#8B5CF6',
   },
   {
@@ -51,24 +54,23 @@ const contacts = [
     value: '@s.ekanayake_',
     actionText: 'Follow on Instagram',
     link: 'https://www.instagram.com/s.ekanayake_?igsh=MTlodnM1NXRmdXNjMg%3D%3D&utm_source=qr',
-    color: 'from-pink-500/20 to-rose-500/20',
-    borderColor: 'border-pink-500/30',
     accent: '#EC4899',
   },
   {
     icon: <FiMapPin />,
     title: 'Location',
     value: 'Kandy / Colombo, Sri Lanka',
-    actionText: 'Available Worldwide / Remote',
-    link: '#',
-    color: 'from-cyan/20 to-blue-500/20',
-    borderColor: 'border-cyan/30',
+    actionText: 'View on Google Maps',
+    link: 'https://maps.google.com/?q=Sri+Lanka',
     accent: '#06B6D4',
   },
 ]
 
 export default function Contact() {
   const [copied, setCopied] = useState(false)
+  const [formState, setFormState] = useState({ name: '', email: '', message: '' })
+  const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
 
   const copyEmail = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -78,10 +80,29 @@ export default function Contact() {
     setTimeout(() => setCopied(false), 2500)
   }
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!formState.name || !formState.email || !formState.message) return
+    setSending(true)
+
+    // Simulate reliable dispatch & formulate mailto fallback
+    setTimeout(() => {
+      setSending(false)
+      setSubmitted(true)
+      // Open mailto as automated seamless dispatch
+      const mailtoUrl = `mailto:lakshanekanayake6@gmail.com?subject=Message from ${encodeURIComponent(
+        formState.name
+      )} via Portfolio&body=${encodeURIComponent(
+        `Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`
+      )}`
+      window.location.href = mailtoUrl
+    }, 700)
+  }
+
   return (
     <section
       id="contact"
-      className="relative z-10 py-28 px-6 md:px-10 overflow-hidden"
+      className="relative z-10 py-28 px-6 md:px-10 overflow-hidden scroll-mt-24"
     >
       {/* Background radial highlight */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-t from-indigo-500/10 via-cyan/5 to-transparent blur-[120px] rounded-full pointer-events-none -z-10" />
@@ -111,14 +132,14 @@ export default function Contact() {
         </motion.div>
 
         {/* Contact Matrix */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {contacts.map((c, i) => (
             <motion.a
               key={c.title}
               href={c.link}
               target={c.link.startsWith('http') || c.link.startsWith('mailto') ? '_blank' : '_self'}
               rel="noreferrer"
-              className={`glass-card rounded-2xl p-6 sm:p-7 relative overflow-hidden flex flex-col justify-between group hover:border-indigo-500/40 transition-all duration-300 hover:-translate-y-1.5 cursor-pointer`}
+              className="glass-card rounded-2xl p-6 sm:p-7 relative overflow-hidden flex flex-col justify-between group hover:border-indigo-500/40 transition-all duration-300 hover:-translate-y-1.5 cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -173,41 +194,133 @@ export default function Contact() {
           ))}
         </div>
 
-        {/* Bottom CTA Card */}
+        {/* Quick Message Form & Direct Call-to-Action */}
         <motion.div
-          className="mt-16 glass-card rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden border border-white/10"
+          className="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-white/10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {/* Internal light ray */}
+          {/* Internal specular light ray */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-indigo-400 to-transparent" />
 
-          <h3 className="font-syne font-extrabold text-2xl sm:text-3xl text-white mb-3 tracking-tight">
-            Ready to Build Something <span className="grad-text">Exceptional?</span>
-          </h3>
-          <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-8 font-normal">
-            I am currently open for full-time junior software engineer positions, internships, and freelance projects. Let's discuss how I can add value to your organization.
-          </p>
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            {/* Left Info Column */}
+            <div className="lg:col-span-5 text-left">
+              <h3 className="font-syne font-extrabold text-2xl sm:text-3xl text-white mb-3 tracking-tight">
+                Send a <span className="grad-text">Direct Message</span>
+              </h3>
+              <p className="text-slate-300 text-sm leading-relaxed mb-6 font-normal">
+                Have an inquiry or project proposal? Send a quick note directly, or reach out instantly via WhatsApp or Email.
+              </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="mailto:lakshanekanayake6@gmail.com"
-              className="btn-primary"
-            >
-              <FiMail size={16} />
-              <span>Send An Email</span>
-            </a>
-            <a
-              href="https://wa.me/94713872042"
-              target="_blank"
-              rel="noreferrer"
-              className="btn-outline"
-            >
-              <SiWhatsapp size={16} className="text-emerald-400" />
-              <span>WhatsApp Message</span>
-            </a>
+              <div className="space-y-3">
+                <a
+                  href="https://wa.me/94713872042"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-emerald-500/40 hover:bg-emerald-500/10 transition-all text-slate-200 text-sm"
+                >
+                  <SiWhatsapp className="text-emerald-400 text-xl flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-xs text-white">Instant WhatsApp Chat</p>
+                    <p className="text-[11px] text-slate-400">+94 71 387 2042</p>
+                  </div>
+                </a>
+
+                <a
+                  href="mailto:lakshanekanayake6@gmail.com"
+                  className="flex items-center gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-indigo-500/40 hover:bg-indigo-500/10 transition-all text-slate-200 text-sm"
+                >
+                  <FiMail className="text-indigo-400 text-xl flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-xs text-white">Direct Email</p>
+                    <p className="text-[11px] text-slate-400 truncate">lakshanekanayake6@gmail.com</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Form Column */}
+            <div className="lg:col-span-7">
+              {submitted ? (
+                <div className="p-8 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 text-center">
+                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-3 text-2xl">
+                    <FiCheck />
+                  </div>
+                  <h4 className="font-syne font-bold text-lg text-white mb-1">
+                    Thank You!
+                  </h4>
+                  <p className="text-xs text-slate-300 max-w-sm mx-auto mb-4">
+                    Your message has been initiated. Supun will respond as soon as possible.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setSubmitted(false)
+                      setFormState({ name: '', email: '', message: '' })
+                    }}
+                    className="text-xs text-emerald-400 font-semibold underline hover:text-emerald-300"
+                  >
+                    Send another note
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4 text-left">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-medium text-slate-300 mb-1.5 font-mono">
+                        Your Name
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formState.name}
+                        onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                        placeholder="John Doe"
+                        className="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/40 transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-slate-300 mb-1.5 font-mono">
+                        Your Email
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={formState.email}
+                        onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                        placeholder="john@example.com"
+                        className="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/40 transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-medium text-slate-300 mb-1.5 font-mono">
+                      Message
+                    </label>
+                    <textarea
+                      required
+                      rows={3}
+                      value={formState.message}
+                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                      placeholder="Hi Supun, I would like to discuss..."
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/40 transition-all resize-none"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={sending}
+                    className="w-full btn-primary py-3 text-sm flex items-center justify-center gap-2"
+                  >
+                    <FiSend size={15} />
+                    <span>{sending ? 'Sending...' : 'Send Message'}</span>
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
         </motion.div>
       </div>

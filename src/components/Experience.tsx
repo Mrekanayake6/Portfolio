@@ -50,7 +50,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative z-10 py-28 px-6 md:px-10 overflow-hidden"
+      className="relative z-10 py-28 px-6 md:px-10 overflow-hidden scroll-mt-24"
     >
       <div className="max-w-5xl mx-auto">
         {/* Header */}

@@ -64,7 +64,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative z-10 py-28 px-6 md:px-10 overflow-hidden"
+      className="relative z-10 py-28 px-6 md:px-10 overflow-hidden scroll-mt-24"
     >
       {/* Background Subtle Gradient Mesh */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-indigo-600/[0.04] blur-[120px] rounded-full pointer-events-none -z-10" />

@@ -39,7 +39,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="relative z-10 py-28 px-6 md:px-10 overflow-hidden"
+      className="relative z-10 py-28 px-6 md:px-10 overflow-hidden scroll-mt-24"
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}

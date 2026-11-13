@@ -1,4 +1,4 @@
-import ParticleBackground from './components/ParticleBackground'
+import AmbientBackground from './components/AmbientBackground'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -13,8 +13,8 @@ import ScrollToTop from './components/ScrollToTop'
 export default function App() {
   return (
     <div className="min-h-screen bg-[#05060A] text-slate-100 overflow-x-hidden relative selection:bg-indigo-500/30 selection:text-indigo-200">
-      {/* Background Interactive Star & Constellation Particle Canvas */}
-      <ParticleBackground />
+      {/* High-End Ambient Background: Cyber Grid, Floating Aurora Orbs, Cursor Spotlight & Stardust */}
+      <AmbientBackground />
 
       {/* Floating Modern Capsule Navbar */}
       <Navbar />
@@ -37,6 +37,4 @@ export default function App() {
       <Footer />
     </div>
   )
-}
-
 }

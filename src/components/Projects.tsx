@@ -61,7 +61,7 @@ const projects: Project[] = [
     desc: 'A modern developer Q&A forum with threaded discussions, interactive code snippets with syntax highlighting, community upvoting, tag filtering, and JWT-secured user authentication.',
     tags: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT Auth'],
     github: 'https://github.com/Mrekanayake6',
-    live: 'https://github.com/Mrekanayake6',
+    live: null,
   },
   {
     id: 4,
@@ -83,7 +83,7 @@ const projects: Project[] = [
     desc: 'An AI-enhanced task management application with drag-and-drop Kanban workflow, dynamic priority weighting, deadline reminders, and team productivity analytics.',
     tags: ['React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'OpenAI'],
     github: 'https://github.com/Mrekanayake6',
-    live: 'https://github.com/Mrekanayake6',
+    live: null,
   },
 ]
 
@@ -96,7 +96,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative z-10 py-28 px-6 md:px-10 overflow-hidden"
+      className="relative z-10 py-28 px-6 md:px-10 overflow-hidden scroll-mt-24"
     >
       {/* Ambient background glow */}
       <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-cyan/5 blur-[130px] rounded-full pointer-events-none -z-10" />
@@ -247,10 +247,12 @@ export default function Projects() {
                     href={p.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-2 text-xs font-semibold py-2.5 px-4 rounded-xl bg-white/[0.05] border border-white/10 text-slate-200 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-200"
+                    className={`inline-flex items-center justify-center gap-2 text-xs font-semibold py-2.5 px-4 rounded-xl bg-white/[0.05] border border-white/10 text-slate-200 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-200 ${
+                      p.live ? 'flex-1' : 'w-full'
+                    }`}
                   >
                     <FiGithub size={14} />
-                    <span>Source Code</span>
+                    <span>View Repository</span>
                   </a>
 
                   {p.live && (

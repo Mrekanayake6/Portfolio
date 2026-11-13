@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FiGithub, FiLinkedin, FiMail, FiArrowDown, FiCode } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiMail, FiDownload, FiCode } from 'react-icons/fi'
 import { BsWhatsapp } from 'react-icons/bs'
 import { FaGraduationCap } from 'react-icons/fa'
 import { HiSparkles } from 'react-icons/hi2'
@@ -57,12 +57,8 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-6 md:px-10 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-6 md:px-10 overflow-hidden scroll-mt-24"
     >
-      {/* Luxury Ambient Glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-gradient-to-b from-indigo-500/20 via-purple/10 to-transparent blur-[120px] pointer-events-none rounded-full -z-10" />
-      <div className="absolute bottom-10 right-10 w-[350px] h-[350px] bg-cyan/10 blur-[100px] pointer-events-none rounded-full -z-10" />
-
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* LEFT: Text Content (Col 7) */}
@@ -124,7 +120,7 @@ export default function Hero() {
 
             {/* Action Buttons */}
             <motion.div
-              className="flex flex-wrap items-center gap-4 mb-10"
+              className="flex flex-wrap items-center gap-3.5 mb-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.45 }}
@@ -132,8 +128,12 @@ export default function Hero() {
               <a href="#projects" className="btn-primary">
                 <span>Explore Featured Work</span>
               </a>
-              <a href="#contact" className="btn-outline">
-                <span>Let's Connect</span>
+              <a
+                href="#contact"
+                className="btn-outline"
+              >
+                <FiDownload size={15} />
+                <span>Resume / Contact</span>
               </a>
             </motion.div>
 
@@ -164,15 +164,15 @@ export default function Hero() {
 
           {/* RIGHT: High-End Avatar Frame (Col 5) */}
           <motion.div
-            className="lg:col-span-5 flex justify-center items-center relative"
+            className="lg:col-span-5 flex justify-center items-center relative py-6"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             {/* Ambient Aura Background */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/30 via-purple/20 to-cyan/30 rounded-full blur-3xl scale-95 pointer-events-none animate-pulse_slow" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/25 via-purple/20 to-cyan/25 rounded-full blur-3xl scale-95 pointer-events-none animate-pulse_slow" />
 
-            <div className="relative w-[300px] sm:w-[340px] h-[300px] sm:h-[340px]">
+            <div className="relative w-[280px] sm:w-[330px] h-[280px] sm:h-[330px]">
               {/* Animated Conic Gradient Ring */}
               <motion.div
                 className="absolute inset-0 rounded-full p-[3px] shadow-[0_0_50px_rgba(99,102,241,0.35)]"
@@ -197,31 +197,31 @@ export default function Hero() {
 
               {/* Floating Glass Pill 1: Full Stack */}
               <motion.div
-                className="absolute -bottom-4 -left-6 sm:-left-8 glass-card rounded-2xl px-4 py-3 flex items-center gap-3 border border-white/10 shadow-2xl backdrop-blur-xl"
-                animate={{ y: [0, -8, 0] }}
+                className="absolute -bottom-3 left-0 sm:-bottom-4 sm:-left-6 glass-card rounded-2xl px-3.5 py-2.5 sm:px-4 sm:py-3 flex items-center gap-2.5 sm:gap-3 border border-white/10 shadow-2xl backdrop-blur-xl z-20 max-w-[210px] sm:max-w-none"
+                animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               >
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
-                  <FiCode size={18} />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 flex-shrink-0">
+                  <FiCode size={17} />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-white leading-tight">Full Stack Developer</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5">React · Node.js · Java · Cloud</p>
+                  <p className="text-xs font-bold text-white leading-tight">Full Stack Dev</p>
+                  <p className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5 truncate">React · Node · Java</p>
                 </div>
               </motion.div>
 
               {/* Floating Glass Pill 2: Graduate */}
               <motion.div
-                className="absolute -top-4 -right-4 sm:-right-8 glass-card rounded-2xl px-4 py-3 flex items-center gap-3 border border-white/10 shadow-2xl backdrop-blur-xl"
-                animate={{ y: [0, 8, 0] }}
+                className="absolute -top-3 right-0 sm:-top-4 sm:-right-6 glass-card rounded-2xl px-3.5 py-2.5 sm:px-4 sm:py-3 flex items-center gap-2.5 sm:gap-3 border border-white/10 shadow-2xl backdrop-blur-xl z-20 max-w-[210px] sm:max-w-none"
+                animate={{ y: [0, 6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
               >
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-purple/20 to-indigo-500/20 border border-purple/30 flex items-center justify-center text-purple-300">
-                  <FaGraduationCap size={18} />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-purple/20 to-indigo-500/20 border border-purple/30 flex items-center justify-center text-purple-300 flex-shrink-0">
+                  <FaGraduationCap size={17} />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-white leading-tight">BEng (Hons) Graduate</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5">Software Engineering</p>
+                  <p className="text-xs font-bold text-white leading-tight">BEng Graduate</p>
+                  <p className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5 truncate">Software Engineering</p>
                 </div>
               </motion.div>
             </div>
