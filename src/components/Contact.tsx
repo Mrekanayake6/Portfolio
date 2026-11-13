@@ -1,15 +1,28 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
+  FiMail,
   FiGithub,
   FiLinkedin,
   FiMapPin,
   FiInstagram,
+  FiCopy,
+  FiCheck,
   FiArrowUpRight,
   FiMessageSquare,
 } from 'react-icons/fi'
 import { SiWhatsapp } from 'react-icons/si'
 
 const contacts = [
+  {
+    icon: <FiMail />,
+    title: 'Email Address',
+    value: 'lakshanekanayake6@gmail.com',
+    actionText: 'Send Email',
+    link: 'mailto:lakshanekanayake6@gmail.com',
+    isEmail: true,
+    accent: '#6366F1',
+  },
   {
     icon: <SiWhatsapp />,
     title: 'WhatsApp',
@@ -53,6 +66,16 @@ const contacts = [
 ]
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false)
+
+  const copyEmail = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    navigator.clipboard.writeText('lakshanekanayake6@gmail.com')
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2500)
+  }
+
   return (
     <section
       id="contact"
@@ -81,17 +104,17 @@ export default function Contact() {
             Let's Start a <span className="grad-text">Conversation</span>
           </h2>
           <p className="text-slate-400 mt-2 max-w-lg mx-auto text-sm sm:text-base font-normal">
-            Whether you have an internship opportunity, a project to build, or simply want to connect — reach out directly through any platform below.
+            Whether you have an internship opportunity, a project to build, or simply want to connect — reach out directly through any channel below.
           </p>
         </motion.div>
 
-        {/* Contact Matrix */}
+        {/* Contact Matrix (Balanced 3x2 Grid) */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
           {contacts.map((c, i) => (
             <motion.a
               key={c.title}
               href={c.link}
-              target={c.link.startsWith('http') ? '_blank' : '_self'}
+              target={c.link.startsWith('http') || c.link.startsWith('mailto') ? '_blank' : '_self'}
               rel="noreferrer"
               className="glass-card rounded-2xl p-6 sm:p-7 relative overflow-hidden flex flex-col justify-between group hover:border-indigo-500/40 transition-all duration-300 hover:-translate-y-1.5 cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
@@ -99,7 +122,7 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
             >
-              {/* Subtle top-right icon link */}
+              {/* Top Row with Icon & Action */}
               <div className="flex items-start justify-between mb-4">
                 <div
                   className="w-12 h-12 rounded-xl bg-slate-900/90 border border-white/10 flex items-center justify-center text-xl text-white shadow-inner group-hover:scale-105 transition-transform duration-300"
@@ -108,9 +131,29 @@ export default function Contact() {
                   {c.icon}
                 </div>
 
-                <div className="w-8 h-8 rounded-lg bg-white/[0.03] border border-white/[0.07] flex items-center justify-center text-slate-400 group-hover:text-white group-hover:bg-white/[0.08] transition-colors">
-                  <FiArrowUpRight size={15} />
-                </div>
+                {c.isEmail ? (
+                  <button
+                    onClick={copyEmail}
+                    className="p-2 rounded-lg bg-white/[0.05] border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-all flex items-center gap-1.5 text-xs"
+                    title="Copy Email Address"
+                  >
+                    {copied ? (
+                      <>
+                        <FiCheck className="text-emerald-400" />
+                        <span className="text-[10px] text-emerald-400 font-mono">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <FiCopy size={13} />
+                        <span className="text-[10px] font-mono">Copy</span>
+                      </>
+                    )}
+                  </button>
+                ) : (
+                  <div className="w-8 h-8 rounded-lg bg-white/[0.03] border border-white/[0.07] flex items-center justify-center text-slate-400 group-hover:text-white group-hover:bg-white/[0.08] transition-colors">
+                    <FiArrowUpRight size={15} />
+                  </div>
+                )}
               </div>
 
               <div>

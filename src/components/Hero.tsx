@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FiGithub, FiLinkedin, FiMail, FiDownload, FiCode } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiMail, FiDownload, FiCode, FiInstagram } from 'react-icons/fi'
 import { BsWhatsapp } from 'react-icons/bs'
 import { FaGraduationCap } from 'react-icons/fa'
 import { HiSparkles } from 'react-icons/hi2'
@@ -51,6 +51,7 @@ export default function Hero() {
     { icon: <FiGithub size={18} />, href: 'https://github.com/Mrekanayake6', label: 'GitHub' },
     { icon: <FiLinkedin size={18} />, href: 'https://www.linkedin.com/in/lakshan-ekanayake-164909296/', label: 'LinkedIn' },
     { icon: <BsWhatsapp size={17} />, href: 'https://wa.me/94713872042', label: 'WhatsApp' },
+    { icon: <FiInstagram size={18} />, href: 'https://www.instagram.com/s.ekanayake_?igsh=MTlodnM1NXRmdXNjMg%3D%3D&utm_source=qr', label: 'Instagram' },
     { icon: <FiMail size={18} />, href: 'mailto:lakshanekanayake6@gmail.com', label: 'Email' },
   ]
 

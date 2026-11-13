@@ -1,4 +1,4 @@
-import { FiGithub, FiLinkedin, FiMail, FiArrowUp } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiMail, FiArrowUp, FiInstagram } from 'react-icons/fi'
 import { SiWhatsapp } from 'react-icons/si'
 
 export default function Footer() {
@@ -54,6 +54,15 @@ export default function Footer() {
             className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-white hover:border-emerald-400/40 hover:bg-emerald-500/10 transition-all"
           >
             <SiWhatsapp size={15} />
+          </a>
+          <a
+            href="https://www.instagram.com/s.ekanayake_?igsh=MTlodnM1NXRmdXNjMg%3D%3D&utm_source=qr"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+            className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-white hover:border-pink-500/40 hover:bg-pink-500/10 transition-all"
+          >
+            <FiInstagram size={16} />
           </a>
           <a
             href="mailto:lakshanekanayake6@gmail.com"
