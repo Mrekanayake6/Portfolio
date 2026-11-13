@@ -173,7 +173,7 @@ export default function Hero() {
             {/* Ambient Aura Background */}
             <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/25 via-purple/20 to-cyan/25 rounded-full blur-3xl scale-95 pointer-events-none animate-pulse_slow" />
 
-            <div className="relative w-[280px] sm:w-[330px] h-[280px] sm:h-[330px]">
+            <div className="relative w-[290px] sm:w-[340px] h-[290px] sm:h-[340px]">
               {/* Animated Conic Gradient Ring */}
               <motion.div
                 className="absolute inset-0 rounded-full p-[3px] shadow-[0_0_50px_rgba(99,102,241,0.35)]"
@@ -187,13 +187,14 @@ export default function Hero() {
               </motion.div>
 
               {/* Inner Picture Container */}
-              <div className="absolute inset-[6px] rounded-full overflow-hidden bg-[#0A0D18] border border-white/10 flex items-center justify-center shadow-inner">
+              <div className="absolute inset-[6px] rounded-full overflow-hidden bg-[#0A0D18] border border-white/15 flex items-center justify-center">
                 <img
                   src={profileImage}
                   alt="Supun Lakshan Ekanayake"
-                  className="w-full h-full object-cover rounded-full transition-transform duration-700 hover:scale-105"
+                  loading="eager"
+                  decoding="async"
+                  className="w-full h-full object-cover object-[center_top] rounded-full transition-transform duration-700 hover:scale-105 brightness-[1.02] contrast-[1.02]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#05060A]/40 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Floating Glass Pill 1: Full Stack */}
