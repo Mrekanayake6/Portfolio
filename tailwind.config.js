@@ -36,9 +36,8 @@ export default {
       },
       fontFamily: {
         syne: ['Syne', 'sans-serif'],
-        sans: ['"Plus Jakarta Sans"', 'DM Sans', 'sans-serif'],
-        dm: ['"Plus Jakarta Sans"', 'DM Sans', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
+        sans: ['"DM Sans"', 'sans-serif'],
+        dm: ['"DM Sans"', 'sans-serif'],
       },
       backgroundImage: {
         'grad-main': 'linear-gradient(135deg, #A855F7 0%, #6366F1 50%, #06B6D4 100%)',

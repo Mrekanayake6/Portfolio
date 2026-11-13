@@ -11,16 +11,16 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Left: Brand */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-indigo-500 to-cyan flex items-center justify-center p-[1px]">
-              <div className="w-full h-full bg-[#05060A] rounded-[7px] flex items-center justify-center">
-                <span className="font-syne font-extrabold text-xs text-indigo-300">SE</span>
-              </div>
-            </div>
-            <span className="font-syne font-bold text-base text-white tracking-tight">
-              Supun Lakshan<span className="text-cyan">.</span>
-            </span>
-          </div>
+          <a
+            href="#"
+            className="grad-text font-syne font-extrabold text-xl tracking-tight mb-1"
+            onClick={(e) => {
+              e.preventDefault()
+              scrollToTop()
+            }}
+          >
+            SLE.
+          </a>
           <p className="text-xs text-slate-400 font-normal">
             Software Engineer & Full Stack Developer · Sri Lanka
           </p>

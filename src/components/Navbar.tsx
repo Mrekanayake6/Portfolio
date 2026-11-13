@@ -50,22 +50,13 @@ export default function Navbar() {
           {/* Logo */}
           <a
             href="#"
-            className="flex items-center gap-2 group cursor-pointer"
+            className="grad-text font-syne font-extrabold text-2xl tracking-tight cursor-pointer hover:opacity-90 transition-opacity"
             onClick={(e) => {
               e.preventDefault()
               window.scrollTo({ top: 0, behavior: 'smooth' })
             }}
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple to-cyan flex items-center justify-center p-[1px] shadow-glow-sm">
-              <div className="w-full h-full bg-[#07080E] rounded-[11px] flex items-center justify-center">
-                <span className="font-syne font-extrabold text-sm text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-light to-cyan-light">
-                  SE
-                </span>
-              </div>
-            </div>
-            <span className="font-syne font-bold text-lg tracking-tight text-white group-hover:text-indigo-300 transition-colors">
-              Supun<span className="text-cyan">.</span>
-            </span>
+            SLE.
           </a>
 
           {/* Desktop nav links */}
