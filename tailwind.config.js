@@ -35,7 +35,8 @@ export default {
         },
       },
       fontFamily: {
-        syne: ['Syne', 'sans-serif'],
+        syne: ['Outfit', 'sans-serif'],
+        display: ['Outfit', 'sans-serif'],
         sans: ['"DM Sans"', 'sans-serif'],
         dm: ['"DM Sans"', 'sans-serif'],
       },

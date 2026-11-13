@@ -173,10 +173,10 @@ export default function Hero() {
             {/* Ambient Aura Background */}
             <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/25 via-purple/20 to-cyan/25 rounded-full blur-3xl scale-95 pointer-events-none animate-pulse_slow" />
 
-            <div className="relative w-[290px] sm:w-[340px] h-[290px] sm:h-[340px]">
+            <div className="relative w-[280px] sm:w-[340px] md:w-[370px] lg:w-[410px] xl:w-[430px] h-[280px] sm:h-[340px] md:h-[370px] lg:h-[410px] xl:h-[430px]">
               {/* Animated Conic Gradient Ring */}
               <motion.div
-                className="absolute inset-0 rounded-full p-[3px] shadow-[0_0_50px_rgba(99,102,241,0.35)]"
+                className="absolute inset-0 rounded-full p-[3px] shadow-[0_0_60px_rgba(99,102,241,0.4)]"
                 style={{
                   background: 'conic-gradient(from 0deg, #6366F1, #8B5CF6, #06B6D4, #10B981, #6366F1)',
                 }}
@@ -199,7 +199,7 @@ export default function Hero() {
 
               {/* Floating Glass Pill 1: Full Stack */}
               <motion.div
-                className="absolute -bottom-3 left-0 sm:-bottom-4 sm:-left-6 glass-card rounded-2xl px-3.5 py-2.5 sm:px-4 sm:py-3 flex items-center gap-2.5 sm:gap-3 border border-white/10 shadow-2xl backdrop-blur-xl z-20 max-w-[210px] sm:max-w-none"
+                className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-4 lg:-left-8 lg:bottom-6 glass-card rounded-2xl px-3.5 py-2.5 sm:px-4 sm:py-3 flex items-center gap-2.5 sm:gap-3 border border-white/10 shadow-2xl backdrop-blur-xl z-20 max-w-[210px] sm:max-w-none"
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               >
@@ -214,7 +214,7 @@ export default function Hero() {
 
               {/* Floating Glass Pill 2: Graduate */}
               <motion.div
-                className="absolute -top-3 right-0 sm:-top-4 sm:-right-6 glass-card rounded-2xl px-3.5 py-2.5 sm:px-4 sm:py-3 flex items-center gap-2.5 sm:gap-3 border border-white/10 shadow-2xl backdrop-blur-xl z-20 max-w-[210px] sm:max-w-none"
+                className="absolute -top-2 -right-2 sm:-top-3 sm:-right-4 lg:-right-8 lg:top-6 glass-card rounded-2xl px-3.5 py-2.5 sm:px-4 sm:py-3 flex items-center gap-2.5 sm:gap-3 border border-white/10 shadow-2xl backdrop-blur-xl z-20 max-w-[210px] sm:max-w-none"
                 animate={{ y: [0, 6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
               >
